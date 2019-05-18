@@ -1,0 +1,239 @@
+> runApp('ARMAP')
+[1] "/home/garcian/thesis/r_workspace/ARMAP/data/"
+[1] "/home/garcian/thesis/r_workspace/ARMAP/data/reads"
+[1] "reads.fastq"         "reads2.fastq"        "SRR6043945.fastq.gz"
+[1] "/home/garcian/thesis/r_workspace/ARMAP/data/reads"
+[1] "reads.fastq"         "reads2.fastq"        "SRR6043945.fastq.gz"
+
+Listening on http://127.0.0.1:3778
+
+        ==========     _____ _    _ ____  _____  ______          _____  
+        =====         / ____| |  | |  _ \|  __ \|  ____|   /\   |  __ \ 
+          =====      | (___ | |  | | |_) | |__) | |__     /  \  | |  | |
+            ====      \___ \| |  | |  _ <|  _  /|  __|   / /\ \ | |  | |
+              ====    ____) | |__| | |_) | | \ \| |____ / ____ \| |__| |
+        ==========   |_____/ \____/|____/|_|  \_\______/_/    \_\_____/
+       Rsubread 1.32.2
+
+//=========================== indexBuilder setting ===========================\\
+||                                                                            ||
+||                Index name : GCA_000271565_index                            ||
+||               Index space : base-space                                     ||
+||                    Memory : 1236 Mbytes                                    ||
+||          Repeat threshold : 100 repeats                                    ||
+||  Distance to next subread : 1                                              ||
+||                                                                            ||
+||               Input files : 1 file in total                                ||
+||                             o GCA_000271565.1_GanLuc1.0_genomic.fna        ||
+||                                                                            ||
+\\===================== http://subread.sourceforge.net/ ======================//
+
+//================================= Running ==================================\\
+||                                                                            ||
+|| Check the integrity of provided reference sequences ...                    ||
+|| No format issues were found                                                ||
+|| Scan uninformative subreads in reference sequences ...                     ||
+||    8%,   0 mins elapsed, rate=381.8k bps/s, total=43m                      ||
+||   16%,   0 mins elapsed, rate=706.8k bps/s, total=43m                      ||
+||   24%,   0 mins elapsed, rate=976.0k bps/s, total=43m                      ||
+||   33%,   0 mins elapsed, rate=1211.8k bps/s, total=43m                     ||
+||   41%,   0 mins elapsed, rate=1411.5k bps/s, total=43m                     ||
+||   49%,   0 mins elapsed, rate=1590.4k bps/s, total=43m                     ||
+||   58%,   0 mins elapsed, rate=1733.0k bps/s, total=43m                     ||
+||   66%,   0 mins elapsed, rate=1863.2k bps/s, total=43m                     ||
+||   74%,   0 mins elapsed, rate=1983.6k bps/s, total=43m                     ||
+||   83%,   0 mins elapsed, rate=2088.2k bps/s, total=43m                     ||
+||   91%,   0 mins elapsed, rate=2183.8k bps/s, total=43m                     ||
+||   99%,   0 mins elapsed, rate=2260.6k bps/s, total=43m                     ||
+|| 284 uninformative subreads were found.                                     ||
+|| These subreads were excluded from index building.                          ||
+|| Build the index...                                                         ||
+||    8%,   0 mins elapsed, rate=606.0k bps/s, total=43m                      ||
+||   16%,   0 mins elapsed, rate=874.5k bps/s, total=43m                      ||
+||   24%,   0 mins elapsed, rate=1106.3k bps/s, total=43m                     ||
+||   33%,   0 mins elapsed, rate=1285.4k bps/s, total=43m                     ||
+||   41%,   0 mins elapsed, rate=1426.8k bps/s, total=43m                     ||
+||   49%,   0 mins elapsed, rate=1539.3k bps/s, total=43m                     ||
+||   58%,   0 mins elapsed, rate=1630.6k bps/s, total=43m                     ||
+||   66%,   0 mins elapsed, rate=1706.9k bps/s, total=43m                     ||
+||   74%,   0 mins elapsed, rate=1772.1k bps/s, total=43m                     ||
+||   83%,   0 mins elapsed, rate=1826.2k bps/s, total=43m                     ||
+||   91%,   0 mins elapsed, rate=1874.0k bps/s, total=43m                     ||
+||   99%,   0 mins elapsed, rate=1918.4k bps/s, total=43m                     ||
+|| Save current index block...                                                ||
+||  [ 0.0% finished ]                                                         ||
+||  [ 10.0% finished ]                                                        ||
+||  [ 20.0% finished ]                                                        ||
+||  [ 30.0% finished ]                                                        ||
+||  [ 40.0% finished ]                                                        ||
+||  [ 50.0% finished ]                                                        ||
+||  [ 60.0% finished ]                                                        ||
+||  [ 70.0% finished ]                                                        ||
+||  [ 80.0% finished ]                                                        ||
+||  [ 90.0% finished ]                                                        ||
+||  [ 100.0% finished ]                                                       ||
+||                                                                            ||
+||                      Total running time: 0.9 minutes.                      ||
+||Index /home/garcian/thesis/r_workspace/ARMAP/data/index/GCA_000271565_ ... ||
+||                                                                            ||
+\\===================== http://subread.sourceforge.net/ ======================//
+
+[1] "/home/garcian/thesis/r_workspace/ARMAP/data/reads/SRR6043945.fastq.gz"
+[1] "SRR6043945"
+[1] "/home/garcian/thesis/r_workspace/ARMAP/data/alignments/SRR6043945.SAM"
+
+        ==========     _____ _    _ ____  _____  ______          _____  
+        =====         / ____| |  | |  _ \|  __ \|  ____|   /\   |  __ \ 
+          =====      | (___ | |  | | |_) | |__) | |__     /  \  | |  | |
+            ====      \___ \| |  | |  _ <|  _  /|  __|   / /\ \ | |  | |
+              ====    ____) | |__| | |_) | | \ \| |____ / ____ \| |__| |
+        ==========   |_____/ \____/|____/|_|  \_\______/_/    \_\_____/
+       Rsubread 1.32.2
+
+//============================= subjunc setting ==============================\\
+||                                                                            ||
+|| Function      : Read alignment + Junction detection (RNA-Seq)              ||
+|| Input file    : SRR6043945.fastq.gz                                        ||
+|| Output file   : SRR6043945.SAM (SAM)                                       ||
+|| Index name    : GCA_000271565_index                                        ||
+||                                                                            ||
+||                    ------------------------------------                    ||
+||                                                                            ||
+||                               Threads : 1                                  ||
+||                          Phred offset : 33                                 ||
+||                             Min votes : 1 / 14                             ||
+||                        Max mismatches : 3                                  ||
+||                      Max indel length : 5                                  ||
+||            Report multi-mapping reads : yes                                ||
+|| Max alignments per multi-mapping read : 1                                  ||
+||                                                                            ||
+\\===================== http://subread.sourceforge.net/ ======================//
+
+//================ Running (02-May-2019 00:28:50, pid=23628) =================\\
+||                                                                            ||
+|| The input file contains base space reads.                                  ||
+|| The range of Phred scores observed in the data is [2,42]                   ||
+|| Load the 1-th index block...                                               ||
+||    0% completed, 0.1 mins elapsed, rate=28.5k reads per second             ||
+||    5% completed, 1.2 mins elapsed, rate=33.9k reads per second             ||
+||   12% completed, 3.0 mins elapsed, rate=27.6k reads per second             ||
+||   13% completed, 3.2 mins elapsed, rate=26.6k reads per second             ||
+||   13% completed, 3.5 mins elapsed, rate=25.7k reads per second             ||
+||   14% completed, 3.7 mins elapsed, rate=25.3k reads per second             ||
+||   14% completed, 3.9 mins elapsed, rate=25.0k reads per second             ||
+||   15% completed, 4.1 mins elapsed, rate=24.7k reads per second             ||
+||   16% completed, 4.3 mins elapsed, rate=24.4k reads per second             ||
+||   16% completed, 4.5 mins elapsed, rate=24.1k reads per second             ||
+||   17% completed, 4.7 mins elapsed, rate=23.9k reads per second             ||
+||   17% completed, 4.9 mins elapsed, rate=24.3k reads per second             ||
+||   24% completed, 6.0 mins elapsed, rate=27.1k reads per second             ||
+||   30% completed, 7.3 mins elapsed, rate=27.1k reads per second             ||
+||   31% completed, 7.5 mins elapsed, rate=26.9k reads per second             ||
+||   31% completed, 7.7 mins elapsed, rate=26.6k reads per second             ||
+||   32% completed, 7.9 mins elapsed, rate=26.4k reads per second             ||
+||   32% completed, 8.2 mins elapsed, rate=26.2k reads per second             ||
+||   33% completed, 8.4 mins elapsed, rate=26.0k reads per second             ||
+||   34% completed, 8.6 mins elapsed, rate=25.7k reads per second             ||
+||   34% completed, 8.8 mins elapsed, rate=25.5k reads per second             ||
+||   35% completed, 9.0 mins elapsed, rate=25.3k reads per second             ||
+||   35% completed, 9.3 mins elapsed, rate=25.5k reads per second             ||
+||   42% completed,  10 mins elapsed, rate=26.9k reads per second             ||
+||   48% completed,  11 mins elapsed, rate=26.9k reads per second             ||
+||   48% completed,  11 mins elapsed, rate=26.7k reads per second             ||
+||   49% completed,  12 mins elapsed, rate=26.5k reads per second             ||
+||   50% completed,  12 mins elapsed, rate=26.3k reads per second             ||
+||   50% completed,  12 mins elapsed, rate=26.1k reads per second             ||
+||   51% completed,  12 mins elapsed, rate=26.0k reads per second             ||
+||   51% completed,  13 mins elapsed, rate=25.8k reads per second             ||
+||   52% completed,  13 mins elapsed, rate=25.7k reads per second             ||
+||   53% completed,  13 mins elapsed, rate=25.5k reads per second             ||
+||   53% completed,  13 mins elapsed, rate=25.6k reads per second             ||
+||   60% completed,  14 mins elapsed, rate=26.6k reads per second             ||
+||   66% completed,  16 mins elapsed, rate=26.5k reads per second             ||
+||   67% completed,  16 mins elapsed, rate=26.3k reads per second             ||
+||   67% completed,  16 mins elapsed, rate=26.2k reads per second             ||
+||   68% completed,  16 mins elapsed, rate=26.0k reads per second             ||
+||   68% completed,  17 mins elapsed, rate=25.9k reads per second             ||
+||   69% completed,  17 mins elapsed, rate=25.8k reads per second             ||
+||   70% completed,  17 mins elapsed, rate=25.6k reads per second             ||
+||   70% completed,  17 mins elapsed, rate=25.5k reads per second             ||
+||   71% completed,  18 mins elapsed, rate=25.3k reads per second             ||
+||   72% completed,  18 mins elapsed, rate=25.4k reads per second             ||
+||   78% completed,  19 mins elapsed, rate=26.2k reads per second             ||
+||   84% completed,  20 mins elapsed, rate=26.1k reads per second             ||
+||   85% completed,  21 mins elapsed, rate=26.0k reads per second             ||
+||   85% completed,  21 mins elapsed, rate=25.9k reads per second             ||
+||   86% completed,  21 mins elapsed, rate=25.8k reads per second             ||
+||   87% completed,  21 mins elapsed, rate=25.6k reads per second             ||
+||   87% completed,  22 mins elapsed, rate=25.5k reads per second             ||
+||   88% completed,  22 mins elapsed, rate=25.4k reads per second             ||
+||   88% completed,  22 mins elapsed, rate=25.3k reads per second             ||
+||   89% completed,  23 mins elapsed, rate=25.1k reads per second             ||
+||   90% completed,  23 mins elapsed, rate=25.2k reads per second             ||
+||   96% completed,  24 mins elapsed, rate=25.8k reads per second             ||
+||   97% completed,  24 mins elapsed, rate=25.5k reads per second             ||
+||   97% completed,  24 mins elapsed, rate=25.4k reads per second             ||
+||   97% completed,  24 mins elapsed, rate=25.4k reads per second             ||
+||   98% completed,  25 mins elapsed, rate=25.3k reads per second             ||
+||   98% completed,  25 mins elapsed, rate=25.2k reads per second             ||
+||   98% completed,  25 mins elapsed, rate=25.2k reads per second             ||
+||   99% completed,  25 mins elapsed, rate=25.1k reads per second             ||
+||   99% completed,  25 mins elapsed, rate=25.0k reads per second             ||
+||   99% completed,  25 mins elapsed, rate=25.0k reads per second             ||
+||                                                                            ||
+||                          Completed successfully.                           ||
+||                                                                            ||
+\\============================================================================//
+
+//================================= Summary ==================================\\
+||                                                                            ||
+||         Total reads : 38,864,755                                           ||
+||              Mapped : 32,412,789 (83.4%)                                   ||
+||     Uniquely mapped : 32,272,719                                           ||
+||       Multi-mapping : 140,070                                              ||
+||                                                                            ||
+||            Unmapped : 6,451,966                                            ||
+||                                                                            ||
+||           Junctions : 86,649                                               ||
+||              Indels : 55,631                                               ||
+||                                                                            ||
+||        Running time : 26.0 minutes                                         ||
+||                                                                            ||
+\\===================== http://subread.sourceforge.net/ ======================//
+
+
+        ==========     _____ _    _ ____  _____  ______          _____  
+        =====         / ____| |  | |  _ \|  __ \|  ____|   /\   |  __ \ 
+          =====      | (___ | |  | | |_) | |__) | |__     /  \  | |  | |
+            ====      \___ \| |  | |  _ <|  _  /|  __|   / /\ \ | |  | |
+              ====    ____) | |__| | |_) | | \ \| |____ / ____ \| |__| |
+        ==========   |_____/ \____/|____/|_|  \_\______/_/    \_\_____/
+       Rsubread 1.32.2
+
+//========================== featureCounts setting ===========================\\
+||                                                                            ||
+||             Input files : 1 SAM file                                       ||
+||                           S SRR6043945.SAM                                 ||
+||                                                                            ||
+||              Annotation : GCA_000271565.1_GanLuc1.0_genomic.gff.gz (GTF)   ||
+||      Dir for temp files : .                                                ||
+||                 Threads : 1                                                ||
+||                   Level : meta-feature level                               ||
+||              Paired-end : no                                               ||
+||      Multimapping reads : counted                                          ||
+|| Multi-overlapping reads : not counted                                      ||
+||   Min overlapping bases : 1                                                ||
+||                                                                            ||
+\\===================== http://subread.sourceforge.net/ ======================//
+
+//================================= Running ==================================\\
+||                                                                            ||
+|| Load annotation file GCA_000271565.1_GanLuc1.0_genomic.gff.gz ...          ||
+ERROR: no features were loaded in format GTF. The annotation format can be specified by the 'isGTFAnnotationFile' option, and the required feature type can be specified by the 'GTF.featureType' option.
+The porgram has to terminate.
+
+Warning: Error in featureCounts: No counts were generated.
+  74: stop
+  73: featureCounts
+  72: observeEventHandler [/home/garcian/thesis/r_workspace/ARMAP/app.R#248]
+   1: runApp
