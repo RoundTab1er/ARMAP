@@ -1,7 +1,20 @@
-assign("my_path", paste0(getwd(), '/data/'), envir = .GlobalEnv)
+# Main ARMAP application
+#
+# Author: Nicholas Garcia
+# Version 1.0.0
+# Date: 2019-05-27
+#
 
-#my_path = '/home/garcian/ARMAP/data/' 
-#my_path = paste0(getwd(), '/data/')
+#Set path to data folders (folder structure: data/ and src/ folders in root ARMAP folder)
+# src folder shall contain all source files
+# data folder shall contain folders
+#	genome/
+#	index/
+#	reads/
+#	alignments/
+#	annotations/
+#	counts/
+assign("my_path", paste0(getwd(), '/data/'), envir = .GlobalEnv)
 
 print(my_path)
 print(paste0(my_path, 'reads'))
