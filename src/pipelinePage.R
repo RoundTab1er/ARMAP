@@ -1,7 +1,6 @@
-print(paste0(my_path, 'reads'))
-print(list.files(paste0(my_path, 'reads')))
+### Defines Shiny content objects for the featureCounting page
 
-# ROW #1 --> FASTA FILE SELECTION
+#' ROW #1 --> FASTA FILE SELECTION
 fileSelection <- function() {
 	fluidRow(
 		column(
@@ -35,7 +34,7 @@ fileSelection <- function() {
 	)
 }
 
-# SELECT RNA-SEQ DATA FILES
+#' SELECT RNA-SEQ DATA FILES
 seqSelection <- function() {
 	fluidRow(
 		column(
@@ -123,7 +122,7 @@ seqSelection <- function() {
 	)
 }
 
-#select mapping parameters
+#' select mapping parameters
 parameterSelection <- function() {
 	fluidRow(
 		column(
@@ -161,7 +160,7 @@ parameterSelection <- function() {
 	)
 }
 
-#Set up counting
+#' Set up counting
 countFiles <- function() {
 	fluidRow(
 		column(
@@ -221,7 +220,7 @@ countFiles <- function() {
 	)
 }
 
-#set up counting params
+#' set up counting params
 countParams <- function() {
 	fluidRow(
 		column(
@@ -263,7 +262,7 @@ countParams <- function() {
 	)
 }
 
-#define tabset
+#' define tabset
 pipelinePage <- function() {
 	tabsetPanel(
 		id="tabs",

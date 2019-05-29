@@ -1,43 +1,39 @@
-#my_path = paste0(getwd(), '/data/')
-#my_path = '/home/garcian/thesis/r_workspace/'
+### Defines Shiny content objects for the featureCounting page
 
-countsRow3 <- function() {
+#' Input location and input
+countsRow1 <- function() {
 	fluidRow(
 		column(
-			3,
+			4,
 
-			selectInput(inputId='meta_features_counts', label='Use Meta-Features', 
-				choices= c("No" = FALSE, "Yes" = TRUE)
-			)
-		),
-
-
-		column(
-			3,
-
-			selectInput(inputId='feature_type_counts', label='Feature Type', 
-				choices= c("Exon" = 'exon')
+			selectInput(inputId='file_location_counting', label='File location', 
+				choices= c("Files on my computer" = "local", "Files on server" = "server")
 			)
 		),
 
 		column(
-			3,
+			4,
 
-			selectInput(inputId='allow_overlap_counts', label='Allow Multi-Overlap', 
-				choices= c("No" = FALSE, "Yes" = TRUE)
-			)
-		),
+			conditionalPanel(
+				condition="input.file_location_counting == 'server'",
 
-		column(
-			3,
+				selectInput(inputId='alignment_file_counts', label='Alignment File', 
+					choices= list.files(paste0(my_path, "alignments/"))
+				)
+			),
 
-			selectInput(inputId='attr_type_counts', label='Attribute Type', 
-				choices= c("gene_id" = 'gid', "name" = 'n')
+			conditionalPanel(
+				condition="input.file_location_counting == 'local'",
+
+				fileInput(inputId="alignment_file_counts_local", label="Alignment File", multiple = FALSE, width = NULL, 
+					buttonLabel = "Browse...", placeholder = "No file selected", accept = c('.sam', '.bam')
+				)
 			)
 		)
 	)
 }
 
+#' First row of configuration
 countsRow2 <- function() {
 	fluidRow(
 		column(
@@ -94,40 +90,46 @@ countsRow2 <- function() {
 	)
 }
 
-countsRow1 <- function() {
+#' Second row of configuration
+countsRow3 <- function() {
 	fluidRow(
 		column(
-			4,
+			3,
 
-			selectInput(inputId='file_location_counting', label='File location', 
-				choices= c("Files on my computer" = "local", "Files on server" = "server")
+			selectInput(inputId='meta_features_counts', label='Use Meta-Features', 
+				choices= c("No" = FALSE, "Yes" = TRUE)
+			)
+		),
+
+
+		column(
+			3,
+
+			selectInput(inputId='feature_type_counts', label='Feature Type', 
+				choices= c("Exon" = 'exon')
 			)
 		),
 
 		column(
-			4,
+			3,
 
-			conditionalPanel(
-				condition="input.file_location_counting == 'server'",
+			selectInput(inputId='allow_overlap_counts', label='Allow Multi-Overlap', 
+				choices= c("No" = FALSE, "Yes" = TRUE)
+			)
+		),
 
-				selectInput(inputId='alignment_file_counts', label='Alignment File', 
-					choices= list.files(paste0(my_path, "alignments/"))
-				)
-			),
+		column(
+			3,
 
-			conditionalPanel(
-				condition="input.file_location_counting == 'local'",
-
-				fileInput(inputId="alignment_file_counts_local", label="Alignment File", multiple = FALSE, width = NULL, 
-					buttonLabel = "Browse...", placeholder = "No file selected", accept = c('.sam', '.bam')
-				)
+			selectInput(inputId='attr_type_counts', label='Attribute Type', 
+				choices= c("gene_id" = 'gid', "name" = 'n')
 			)
 		)
 	)
 }
 
+#' Shiny fluid page object containing the input and configuration rows
 countsPage <- function() {
-
 	fluidPage(
 		countsRow1(),
 		countsRow2(),
@@ -140,13 +142,8 @@ countsPage <- function() {
 		uiOutput("download_button_counts")
 	)
 
-	### HAVE TO WORK OUT ANNOTATION FILE --> IF INBUILT DOESN'T MAKE SENSE TO ASK FOR IT
-	### HAVE TO PASS IT TO featureCounts
-
 	# GTF.featureType
 	#allowMultiOverlap
 	#countMultiMappingReads
 	#minMQS
-
-	#others??
 }

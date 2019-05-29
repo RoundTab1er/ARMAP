@@ -1,3 +1,8 @@
+### Utility Functions for ARMAP
+
+#' Gets current available random access memory (supports Windows, MacOS, Linux)
+#'
+#' @return Current available RAM in MB as integer
 getMem <- function() {
 	os <- getOS()
 	gc()
@@ -21,6 +26,9 @@ getMem <- function() {
 	return(mem)
 }
 
+#' Gets operating system of local machine
+#'
+#' @return String representation of OS for Windows, MacOS, Linux. Unrecognized OS will return "Unknown OS"
 getOS <- function() {
 	if (.Platform$OS.type == "windows") { 
 	    os = "win"
@@ -35,6 +43,9 @@ getOS <- function() {
 	return(os)
 }
 
+#' Gets the appropriate memory limit for making index
+#'
+#' @return Integer in MB for index memory limit
 setIndexMem <- function() {
 	mem_free = getMem()
 
@@ -46,10 +57,17 @@ setIndexMem <- function() {
 	}
 }
 
+#' Gets number of available cores to OS
+#'
+#' @return Integer representing the number of cores/threads available for use
 getCores <- function() {
 	return(detectCores())
 }
 
+#' Gets creation time of desired file
+#'
+#' @param filename String file name of desired file
+#' @return The date of file creation for selected file
 getFileInfo <- function(filename) {
 	time = file.info(filename)$ctime
 	return(sub(" EDT", "", time))

@@ -1,8 +1,14 @@
-#tab names
+### Defines helper logic for app output
+
+#navpanel tab names
 PIPELINE_STRING = "Automated Pipeline"
 MAPPING_PAGE = "Map Reads"
 COUNTS_PAGE = "Count Features"
 
+#' Returns path to fasta file based on active page
+#'
+#' @param input List of Shiny input objects
+#' @return Path of fasta file on active page
 getFastaFile <- function(input) {
 	fastaFile = NULL
 
@@ -15,6 +21,10 @@ getFastaFile <- function(input) {
 	return(fastaFile)
 }
 
+#' Returns file name of fasta file on active page
+#'
+#' @param input List of Shiny input objects
+#' @return Name of fasta file on active page
 getFastaFileName <- function(input) {
 	name = NULL
 
@@ -27,10 +37,18 @@ getFastaFileName <- function(input) {
 	return(name)
 }
 
+#' Returns path of index file on mapping page
+#'
+#' @param input List of Shiny input objects
+#' @return Path of index file on mapping page
 getIndexFile <- function(input) {
 	return(input$index_file_mapping)
 }
 
+#' Returns path of annotation file on active page
+#'
+#' @param input List of Shiny input objects
+#' @return Path of annotation file on active page
 getAnnotationFile <- function(input) {
 	activePage = input$nav
 	annot_file = NULL
@@ -52,6 +70,10 @@ getAnnotationFile <- function(input) {
 	return(annot_file)
 }
 
+#' Returns path of alignment file on active page
+#'
+#' @param input List of Shiny input objects
+#' @return Path of alignment file
 getAlignmentFile1 <- function(input) {
 	activePage <- input$nav
 	alignmentFile <- NULL
@@ -67,6 +89,10 @@ getAlignmentFile1 <- function(input) {
 	return(alignmentFile)
 }
 
+#' Returns file name of alignment file on active page
+#'
+#' @param input List of Shiny input objects
+#' @return Name of alignment file on active page
 getName <- function(input) {
 	name = NULL
 
@@ -79,10 +105,10 @@ getName <- function(input) {
 	return(name)
 }
 
-getCountsFile <- function() {
-
-}
-
+#' Returns file path of sequence file 1 file on active page
+#'
+#' @param input List of Shiny input objects
+#' @return Path of sequence file 1 on active page
 getSeqFile1 <- function(input) {
 	activePage <- input$nav
 	seqfile1 <- NULL
@@ -127,6 +153,10 @@ getSeqFile1 <- function(input) {
 	}
 }
 
+#' Returns path of sequence file 2 file on active page
+#'
+#' @param input List of Shiny input objects
+#' @return Path of sequence file 2 on active page
 getSeqFile2 <- function(input) {
 	activePage = input$nav
 	seqfile2 = NULL
@@ -157,6 +187,10 @@ getSeqFile2 <- function(input) {
 	}
 }
 
+#' Returns file name of sequence file 1 file on active page
+#'
+#' @param input List of Shiny input objects
+#' @return Name of sequence file 1 on active page
 getSeqName1 <- function(input) {
 	activePage = input$nav
 	seqfile1 = NULL
@@ -201,6 +235,10 @@ getSeqName1 <- function(input) {
 	}
 }
 
+#' Returns file name of sequence file 2 file on active page
+#'
+#' @param input List of Shiny input objects
+#' @return Name of sequence file 2 on active page
 getSeqName2 <- function(input) {
 	activePage = input$nav
 	seqfile2 = NULL
@@ -231,10 +269,9 @@ getSeqName2 <- function(input) {
 	}
 }
 
-functionTest <- function() {
-	return("I am a test")
-}
-
+#' Creates progress bar
+#'
+#' @param session Session object
 progress <- function(session) {
 	progress <- Progress$new(session, min=1, max=15)
 		on.exit(progress$close())

@@ -1,4 +1,10 @@
-#qc page logic
+### Logic for output displays
+
+#' Performs basic qc on rna-seq read files. Checks per cycle quality and gc content using RQC and graphs results
+#' 
+#' @param input List of input objects
+#' @param output List of output objects
+#' @param session Session object for progress bars
 pipeline_page_qc <- function(input, output, session) {
 	observeEvent(input$qc_pipeline, 
 		{	
@@ -41,13 +47,11 @@ pipeline_page_qc <- function(input, output, session) {
 					#stop("No file selected for qc")
 			}
 
-			print(paste0("yoda ", getwd(), "/reads"))
-			print(list.files(paste0(getwd(), "/data/reads/")))
-
 			#get fastq files to qc
 			qa <- rqcQA(files, workers=1)
 
 			### FILE 1 ###
+			#calculate per cycle quality graph
 			df_1 <- rqcCycleAverageQualityCalc(qa[1])
 			cycle1 <- as.numeric(levels(df_1$cycle))[df_1$cycle]
 
@@ -56,6 +60,7 @@ pipeline_page_qc <- function(input, output, session) {
 			cycle2 <- as.numeric(levels(gcp_1[["data"]]$cycle))[gcp_1[['data']]$cycle]
 
 			### FILE 2 ###
+			#calculate per cycle quality graph
 			df_2 <- rqcCycleAverageQualityCalc(qa[1])
 			cycle3 <- as.numeric(levels(df_2$cycle))[df_2$cycle]
 
@@ -67,6 +72,7 @@ pipeline_page_qc <- function(input, output, session) {
 			output$cycle_quality_pipeline <- renderPlot(plot(cycle1, df_1$quality, col = df_1$filename, xlab='Cycle', ylab='Quality Score'))
 			output$cycle_gc_pipeline <- renderPlot(plot(cycle2, gcp_1[['data']]$gc, col = gcp_1[['data']]$filename, xlab='Cycle', ylab='% GC', type='b'))
 
+			#if we have a file 2, render the plots
 			if(!is.null(filename2)) {
 				output$cycle_quality_pipeline2 <- renderPlot(plot(cycle3, df_2$quality, col = df_2$filename, xlab='Cycle', ylab='Quality Score'))
 				output$cycle_gc_pipeline2 <- renderPlot(plot(cycle4, gcp_2[['data']]$gc, col = gcp_2[['data']]$filename, xlab='Cycle', ylab='% GC', type='b'))
@@ -75,6 +81,11 @@ pipeline_page_qc <- function(input, output, session) {
 	)	
 }
 
+#' Calls full RQC quality report on selected files
+#' 
+#' @param input List of input objects
+#' @param output List of output objects
+#' @param session Session object for progress bars
 pipeline_page_full_qc <- function(input, output, session) {
 	observeEvent(input$qc_full_pipline, 
   		{
@@ -103,6 +114,11 @@ pipeline_page_full_qc <- function(input, output, session) {
 	)	
 }
 
+#' Automated pipeline logic. Builds index if required, runs alignment, and counts
+#' 
+#' @param input List of input objects
+#' @param output List of output objects
+#' @param session Session object for progress bars
 run_pipeline <- function(input, output, session) {
 	observeEvent(input$start_pipeline, 
 		{
@@ -166,6 +182,11 @@ run_pipeline <- function(input, output, session) {
 	)	
 }
 
+#' Download button logic for pipeline page. Downloads output from aligner (sam and bed files), and featureCounts
+#' 
+#' @param input List of input objects
+#' @param output List of output objects
+#' @param session Session object for progress bars
 pipeline_page_download <- function(input, output, session) {
 	##### TODO: INCLUDE BED FILE IN DOWNLOAD PACKAGE
 	output$download_pipeline <- downloadHandler(
@@ -187,6 +208,11 @@ pipeline_page_download <- function(input, output, session) {
 	)
 }
 
+#' Runs featureCounts for selected alignment file
+#' 
+#' @param input List of input objects
+#' @param output List of output objects
+#' @param session Session object for progress bars
 counts_page_count <- function(input, output, session) {
 	observeEvent(input$count_features, 
   		{
@@ -201,10 +227,6 @@ counts_page_count <- function(input, output, session) {
   			files <- c(alignment_file_1, alignment_file_2) #paste0(my_path, "alignments/", name, ".", format)
 
   			annot_file <- getAnnotationFile(input)
-
-  			print(annot_file)
-  			print(files)
-  			print(input$nav)
 
   			if(input$annotation_type_counts == "inbuilt") {
 	  			fc <- featureCounts(files, annot.inbuilt=input$annotation_type_counts, isPairedEnd=is_pe(input), useMetaFeatures=input$meta_features_counts)
@@ -236,6 +258,11 @@ counts_page_count <- function(input, output, session) {
   	)
 }
 
+#' Download button logic for counts page. Downloads output from featureCounts
+#' 
+#' @param input List of input objects
+#' @param output List of output objects
+#' @param session Session object for progress bars
 counts_page_download <- function(input, output, session) {
   	output$download_counts <- downloadHandler(
   		filename <- function() {
@@ -257,6 +284,11 @@ counts_page_download <- function(input, output, session) {
 	)
 }
 
+#' Performs basic qc on rna-seq read files. Checks per cycle quality and gc content using RQC and graphs results
+#' 
+#' @param input List of input objects
+#' @param output List of output objects
+#' @param session Session object for progress bars
 mapping_page_qc <- function(input, output, session) {
 	observeEvent(input$qc_mapping, 
 		{
@@ -336,6 +368,11 @@ mapping_page_qc <- function(input, output, session) {
 	)
 }
 
+#' Calls full RQC quality report on selected files
+#' 
+#' @param input List of input objects
+#' @param output List of output objects
+#' @param session Session object for progress bars
 mapping_page_full_qc <- function(input, output, session) {
 	observeEvent(input$qc_full_mapping, 
 		{
@@ -364,6 +401,11 @@ mapping_page_full_qc <- function(input, output, session) {
 	)
 }
 
+#' Runs alignment on selected RNA-seq files
+#' 
+#' @param input List of input objects
+#' @param output List of output objects
+#' @param session Session object for progress bars
 mapping_page_run <- function(input, output, session) {
 	observeEvent(input$start_mapping_mapping, 
 		{
@@ -408,6 +450,11 @@ mapping_page_run <- function(input, output, session) {
 	)	
 }	
 
+#' Download button logic for mapping page. Downloads output from aligner (sam and bed files)
+#' 
+#' @param input List of input objects
+#' @param output List of output objects
+#' @param session Session object for progress bars
 mapping_page_download <- function(input, output, session) {
 	##### TODO: INCLUDE BED FILE IN DOWNLOAD PACKAGE
 	output$download_mapping <- downloadHandler(

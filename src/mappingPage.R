@@ -1,6 +1,6 @@
-#my_path = paste0(getwd(), '/data/')
-#my_path = '/home/garcian/thesis/r_workspace/'
+### Defines Shiny content objects for the featureCounting page
 
+#' Creates Shiny tabsetpanel containing graph panel and input/configuration panel
 mappingPage <- function() {
 	tabsetPanel(
 		tabPanel(

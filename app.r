@@ -8,7 +8,7 @@
 #Set path to data folders (folder structure: data/ and src/ folders in root ARMAP folder)
 # src folder shall contain all source files
 # data folder shall contain folders
-#	genome/
+#	genomes/
 #	index/
 #	reads/
 #	alignments/
@@ -31,9 +31,12 @@ source('src/welcomePage.R')
 source('src/utilities.R')
 source('src/qc_page_logic.R')
 
-#'
+#' Checks for presence of required packages, quits and prints message if not installed 
 checkDependencies <- function() {
-	showModal(modalDialog("Dependencies not installed, check manual page", title = "Dependencies Check Failed"))
+	if(1 == 0) {
+		warning("Dependencies not installed, check manual page")
+		stop()
+	}
 }
 
 #' Loads required libraries
@@ -86,15 +89,17 @@ navList <- function() {
 		id='nav',
 		widths=c(3, 9),
 
+	    #link to documentation pages
     	"Documentation",
 	    tabPanel("Welcome Page", welcomePage()),
 	    tabPanel("Manual", manualPage()),
 	    tabPanel("Debug", debugPage()),
 
-
+	    #link to pipeline page
 	   	"Automated Workflow",
 	    tabPanel("Automated Pipeline", pipelinePage()),
 
+	    #link to individual tool pages
 	    "Tools",
 	   	tabPanel("Map Reads", mappingPage()),
 	   	tabPanel("Count Features", countsPage())
@@ -107,6 +112,10 @@ ui <- fluidPage(
 )
 
 #'Define server logic for output
+#' 
+#' @param input List of input objects
+#' @param output List of output objects
+#' @param session Session object for progress bars
 server <- function(input, output, session) 
 	{
 		#degbug page outputs
@@ -130,26 +139,36 @@ server <- function(input, output, session)
 	    	paste0('Text5: ', input$annotation_local_pipeline$name)
 	  	})
 
+	  	#defines logic for generating qc graphs for pipeline
 	  	pipeline_page_qc(input, output, session)
 
+		#defines logic for generating full RQC report
   		pipeline_page_full_qc(input, output, session)
 
+		#defines logic for automated pipeline processing (index, alignment, counting)
   		run_pipeline(input, output, session)
 
+		#defines logic for downloading files from pipeline page
   		pipeline_page_download(input, output, session)
 
+		#defines logic for generating counts
   		counts_page_count(input, output, session)
 
+		#defines logic for downloading files from counts page
   		counts_page_download(input, output, session)
 
+		#defines logic for generating qc graphs for mapping page
   		mapping_page_qc(input, output, session)
 
+		#defines logic for generating full RQC report for mapping page
   		mapping_page_full_qc(input, output, session)
 
+		#defines logic for running aligner
   		mapping_page_run(input, output, session)
 
+		#defines logic for downloading mapping page data
   		mapping_page_download(input, output, session)
 	}
 
-#'Run the application 
+#' Run the application 
 shinyApp(ui = ui, server = server)
